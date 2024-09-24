@@ -1,0 +1,54 @@
+### config/config.yaml
+
+device: "cuda"
+
+hydra:
+    run:
+        dir: "_results/${hydra.job.override_dirname}@${now:%Y-%m-%d_%H-%M-%S}"
+
+dataset:
+    name: "Tanks&Temples"
+    data_root: "data/TanksAndTemple/"
+    scene: "Family"
+    init_batch_size: 1024
+
+render:
+    render_step_size: 0.005
+    alpha_thre: 0.0
+    cone_angle: 0.0
+
+model:
+    log2_hashmap_size: 17
+    n_levels: 16
+    max_resolution: 1024
+    num_splashes: 4
+    fixed_std: True
+    std_init_factor: 50
+    std_final_factor: 10
+    load_model_path: ""
+    splits: [0.875, 0.9375]
+
+occupancy:
+    grid_resolution: 128
+    grid_nlvl: 1
+
+optimizer:
+    learning_rate: 1e-2
+    gaussian_factor: 0.1
+    weight_decay: 0.0
+    eps: 1e-15
+
+scheduler:
+    milestones: [0.5, 0.75, 0.9]
+    gamma: 0.33
+
+trainer:
+    max_steps: 20000
+    log_every: 2000
+    save_every: 20000
+    visualize_every: 5000
+    size_decay_every: 100
+
+    weight_surface: 1e-3
+    weight_sigma: 1e-3
+    weight_mip: 1e-2

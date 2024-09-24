@@ -1,0 +1,13 @@
+git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
+opencv-python
+tensorboard
+imageio
+pillow
+numpy
+scipy
+lpips
+tqdm
+arrgh
+kornia
+trimesh
+hydra-core
